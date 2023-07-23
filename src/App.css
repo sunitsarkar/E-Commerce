@@ -1,26 +1,16 @@
 .App {
   text-align: center;
 }
-.form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10em;
-}
 
-.form-floating{
-  width: 300px;
-  margin-top: 5px;
-}
-.d-flex{
-  margin-right: 10px;
-}
 .card{
-  width: 18rem
+  width: 18rem;
 }
-#product-section{
+.product-section{
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(230, 240, 240);
+}
+.li-btn:hover{
+  cursor: pointer;
 }
