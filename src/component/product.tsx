@@ -16,7 +16,7 @@ interface IProps {
   range: number
 }
 const Product: React.FC<IProps> = ({ category, range }) => {
-  const url="http://localhost:8000";
+  const url = "http://localhost:8000";
   const [state, setState] = useState<IState>({
     loading: false,
     product: [] as MyData[],
@@ -42,18 +42,18 @@ const Product: React.FC<IProps> = ({ category, range }) => {
       );
   }, []);
 
- const addToCart= async (item:MyData)=>{
-    const {name,category,price}=item;
-    const response =await axios.post(url+'/cart',{
-      name:name,
-      category:category,
-      price:price,
-      quantity:1,
-      isBought:false
-  })
-  // console.log(response.data);
-  alert('item added to cart')
- }
+  const addToCart = async (item: MyData) => {
+    const { name, category, price } = item;
+    const response = await axios.post(url + '/cart', {
+      name: name,
+      category: category,
+      price: price,
+      quantity: 1,
+      isBought: false
+    })
+    // console.log(response.data);
+    alert('item added to cart')
+  }
 
   // console.log(state)
   // console.log(category, range)
@@ -70,7 +70,7 @@ const Product: React.FC<IProps> = ({ category, range }) => {
               <div className="card-body">
                 <h5 className="card-title">category: {item.category}</h5>
                 <p className="card-text">Price:${item.price}</p>
-                <a  className="btn btn-primary" onClick={()=>{addToCart(item)}}>add to cart</a>
+                <a className="btn btn-primary" onClick={() => { addToCart(item) }}>add to cart</a>
               </div>
             </div>
           })
@@ -82,31 +82,31 @@ const Product: React.FC<IProps> = ({ category, range }) => {
               <div className="card-body">
                 <h5 className="card-title">category: {item.category}</h5>
                 <p className="card-text">Price:${item.price}</p>
-                <a  className="btn btn-primary" onClick={()=>{addToCart(item)}} >add to cart</a>
+                <a className="btn btn-primary" onClick={() => { addToCart(item) }} >add to cart</a>
               </div>
             </div>
           })
         }
-      </div>: range ? <div>
+      </div> : range ? <div>
         {
           product.map((item, index) => {
             if (item.price < range) return <div className="card" key={index}>
               <div className="card-body">
                 <h5 className="card-title">category: {item.category}</h5>
                 <p className="card-text">Price:${item.price}</p>
-                <a  className="btn btn-primary" onClick={()=>{addToCart(item)}} >add to cart</a>
+                <a className="btn btn-primary" onClick={() => { addToCart(item) }} >add to cart</a>
               </div>
             </div>
           })
         }
-      </div>: <div>
+      </div> : <div>
         {
           product.map((item, index) => {
-             return <div className="card" key={index}>
+            return <div className="card" key={index}>
               <div className="card-body">
                 <h5 className="card-title">category: {item.category}</h5>
                 <p className="card-text">Price:${item.price}</p>
-                <a  className="btn btn-primary" onClick={()=>{addToCart(item)}}>add to cart</a>
+                <a className="btn btn-primary" onClick={() => { addToCart(item) }}>add to cart</a>
               </div>
             </div>
           })

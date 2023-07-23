@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(230, 240, 240);
+  min-height: 555px;
 }
 .li-btn:hover{
   cursor: pointer;

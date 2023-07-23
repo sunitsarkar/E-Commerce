@@ -3,6 +3,7 @@ import './App.css';
 
 import LandingPage from './component/landingPage';
 import Cart from './component/cart';
+import Order from './component/order';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/order' element={<Order/>} />
         </Routes>
       </BrowserRouter>
     </div>
