@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 interface MyData {
     name: string;
     category: string;
@@ -76,7 +77,7 @@ const Cart: React.FC = () => {
     }
 
     const { loading, product, errorMsg } = state;
-    return <div>
+    return <div >
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,27 +92,30 @@ const Cart: React.FC = () => {
                 </div>
             </nav>
         </div>
-        <div className="product-section">
-            {errorMsg && <p>{errorMsg}</p>}
-            {loading && <h1>Loading...</h1>}
-            {product.length === 0 && <h1>No Item Found</h1>}
-            {
-                product.map((item, index) => {
-                    if (item.isBought === false) return <div className="card" key={index}>
-                        <div className="card-body">
-                            <div>
-                                <h5 className="card-title">category: {item.category}</h5>
-                                <p className="card-text">Price:${item.price}</p>
-                                <button type="button" className="btn btn-outline-success" onClick={incCount}>+</button>
-                                <span>quantity: {count}</span>
-                                <button type="button" className="btn btn-outline-danger" onClick={decCount}>-</button>
+        <h2>Your Cart Items</h2>
+        <div className="product-container">
+            <div className="products">
+                {errorMsg && <p>{errorMsg}</p>}
+                {loading && <h1>Loading...</h1>}
+                {product.length === 0 && <h1>No Item Found</h1>}
+                {
+                    product.map((item, index) => {
+                        if (item.isBought === false) return <div className="card" key={index}>
+                            <div className="card-body">
+                                <div>
+                                    <h5 className="card-title">category: {item.category}</h5>
+                                    <p className="card-text">Price:${item.price}</p>
+                                    <button type="button" className="btn btn-outline-success" onClick={incCount}>+</button>
+                                    <span>quantity: {count}</span>
+                                    <button type="button" className="btn btn-outline-danger" onClick={decCount}>-</button>
+                                </div>
+                                <hr />
+                                <button type="button" className="btn btn-dark" onClick={() => { Buy(item) }}>Buy Now</button>
                             </div>
-                            <hr />
-                            <button type="button" className="btn btn-dark" onClick={() => { Buy(item) }}>Buy Now</button>
                         </div>
-                    </div>
-                })
-            }
+                    })
+                }
+            </div>
         </div>
 
     </div>

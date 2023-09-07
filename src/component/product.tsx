@@ -63,7 +63,7 @@ const Product: React.FC<IProps> = ({ category, range }) => {
     {errorMsg && <p>{errorMsg}</p>}
     {loading && <h1>Loading...</h1>}
     {category && range ?
-      <div>
+      <div className="products">
         {
           product.map((item, index) => {
             if (item.category === category && item.price < range) return <div className="card" key={index}>
@@ -75,7 +75,7 @@ const Product: React.FC<IProps> = ({ category, range }) => {
             </div>
           })
         }
-      </div> : category ? <div>
+      </div> : category ? <div className="products">
         {
           product.map((item, index) => {
             if (item.category === category) return <div className="card" key={index}>
@@ -87,7 +87,7 @@ const Product: React.FC<IProps> = ({ category, range }) => {
             </div>
           })
         }
-      </div> : range ? <div>
+      </div> : range ? <div className="products">
         {
           product.map((item, index) => {
             if (item.price < range) return <div className="card" key={index}>
@@ -99,7 +99,7 @@ const Product: React.FC<IProps> = ({ category, range }) => {
             </div>
           })
         }
-      </div> : <div>
+      </div> : <div className="products">
         {
           product.map((item, index) => {
             return <div className="card" key={index}>

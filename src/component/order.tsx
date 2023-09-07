@@ -63,25 +63,27 @@ const Order: React.FC = () => {
             </nav>
         </div>
         <h2>Your Orders</h2>
-        <div className="product-section">
-            {errorMsg && <p>{errorMsg}</p>}
-            {loading && <h1>Loading...</h1>}
-            {product.length === 0 && <h1>No Item Found</h1>}
-            {
-                product.map((item, index) => {
-                    if (item.isBought === true) return <div className="card" key={index}>
-                        <div className="card-body">
-                            <div>
-                                <h5 className="card-title">category: {item.category}</h5>
-                                <p className="card-text">Price:${item.price}</p>
-                                <span>quantity: {item.quantity}</span>
+        <div className="product-container">
+            <div className="products">
+                {errorMsg && <p>{errorMsg}</p>}
+                {loading && <h1>Loading...</h1>}
+                {product.length === 0 && <h1>No Item Found</h1>}
+                {
+                    product.map((item, index) => {
+                        if (item.isBought === true) return <div className="card" key={index}>
+                            <div className="card-body">
+                                <div>
+                                    <h5 className="card-title">category: {item.category}</h5>
+                                    <p className="card-text">Price:${item.price}</p>
+                                    <span>quantity: {item.quantity}</span>
+                                </div>
+                                <hr />
+                                <p>Total Purchase: {item.price * item.quantity}</p>
                             </div>
-                            <hr />
-                            <p>Total Purchase: {item.price * item.quantity}</p>
                         </div>
-                    </div>
-                })
-            }
+                    })
+                }
+            </div>
         </div>
 
     </div>

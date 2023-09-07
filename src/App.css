@@ -4,13 +4,18 @@
 
 .card{
   width: 18rem;
+  margin: 5px 5px;
 }
-.product-section{
-  display: flex;
-  flex-direction: column;
+.product-container{
   align-items: center;
-  background-color: rgb(230, 240, 240);
-  min-height: 555px;
+  background-color: rgb(106, 146, 146);
+  min-height: 575px;
+}
+.products{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .li-btn:hover{
   cursor: pointer;
